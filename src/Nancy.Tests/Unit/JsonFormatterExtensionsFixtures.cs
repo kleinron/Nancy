@@ -1,3 +1,5 @@
+using Nancy.Extensions;
+
 namespace Nancy.Tests.Unit
 {
     using System;
@@ -41,7 +43,7 @@ namespace Nancy.Tests.Unit
             {
                 response.Contents(stream);
 
-                Encoding.UTF8.GetString(stream.ToArray()).ShouldEqual("{\"FirstName\":\"Andy\",\"LastName\":\"Pike\"}");
+                stream.ToArray().DecodeAsUtf8().ShouldEqual("{\"FirstName\":\"Andy\",\"LastName\":\"Pike\"}");
             }
         }
 
@@ -52,7 +54,7 @@ namespace Nancy.Tests.Unit
             using (var stream = new MemoryStream())
             {
                 nullResponse.Contents(stream);
-                Encoding.UTF8.GetString(stream.ToArray()).ShouldEqual("null");
+                stream.ToArray().DecodeAsUtf8().ShouldEqual("null");
             }
         }
 
@@ -63,7 +65,7 @@ namespace Nancy.Tests.Unit
 			using (var stream = new MemoryStream())
 			{
 				response.Contents(stream);
-				Encoding.UTF8.GetString(stream.ToArray()).ShouldEqual(@"{""type"":""System.String""}");
+				stream.ToArray().DecodeAsUtf8().ShouldEqual(@"{""type"":""System.String""}");
 			}
 		}
 

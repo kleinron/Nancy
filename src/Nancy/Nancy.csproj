@@ -106,6 +106,7 @@
     <Compile Include="Diagnostics\DiagnosticsConfiguration.cs" />
     <Compile Include="Diagnostics\DiagnosticsSession.cs" />
     <Compile Include="Diagnostics\ConcurrentLimitedCollection.cs" />
+    <Compile Include="Extensions\ByteArrayExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Diagnostics\DefaultRequestTracing.cs" />
     <Compile Include="Diagnostics\DescriptionAttribute.cs" />

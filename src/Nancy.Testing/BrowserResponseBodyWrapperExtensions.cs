@@ -1,3 +1,5 @@
+using Nancy.Extensions;
+
 namespace Nancy.Testing
 {
     using System;
@@ -30,7 +32,7 @@ namespace Nancy.Testing
         /// <value>A string containing the HTTP response body.</value>
         public static string AsString(this BrowserResponseBodyWrapper bodyWrapper)
         {
-            return Encoding.UTF8.GetString(bodyWrapper.ToArray());
+            return bodyWrapper.ToArray().DecodeAsUtf8();
         }
 
         /// <summary>
